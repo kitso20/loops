@@ -64,30 +64,6 @@ def uuid_validator(list_of_uuids):
         'valid_uuids': [],
         'invalid_uuids': []
     }
-    lett = ['g','h','i','k','l','n','m','o','p','q','r','s','t','u','v','w','x','y','z']
-    split_list = []
-    for st in list_of_uuids:
-
-        first = st.split()
-        for st2 in first:
-            second = st2.split('-')
-            split_list.append(second)
-    
-    for string in split_list:
-        if len(string[0]) == 8 and len(string[1]) == 4 and len(string[2]) == 4 and len(string[3]) == 4 and len(string[4]) == 12:
-            for l in lett:
-                if l in string:
-                    joined = '-'.join(string)
-                    result['invalid_uuids'].append(joined)
-                else:
-                    joined = '-'.join(string)
-                    result['valid_uuids'].append(joined)
-        else:
-            joined = '-'.join(string)
-            result['invalid_uuids'].append(joined)
-
-    
-    
 
     return result
     
