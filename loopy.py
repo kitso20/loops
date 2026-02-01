@@ -13,12 +13,15 @@ def black_friday(prices_list):
 
 
 def retry_pin(pin):    
-    # trying = int(input("Enter your PIN\n"))
-    # while :
-    #     if trying != pin:
-    #         print("Incorrect PIN. Try again.")
-    #     else:
-            return 'Acces Granted!'
+    
+    while True:
+        trying = input("Enter your PIN:")
+        if trying != pin:
+            print("Incorrect PIN. Try again.")
+        else:
+            print('Acces Granted!')
+            return
+            
 
 
 
