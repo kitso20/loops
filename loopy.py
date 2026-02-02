@@ -55,10 +55,9 @@ def peak_finder(temperatures):
             aftr = temperatures[temperatures.index(num)+1] 
         else:
             break
-        if first < num:
-            if num > aftr:
-                first = aftr
-                high.append(num)
+        if first < num > aftr:
+            first = aftr
+            high.append(num)
     return high
 
 
@@ -67,6 +66,11 @@ def uuid_validator(list_of_uuids):
         'valid_uuids': [],
         'invalid_uuids': []
     }
+    for id in list_of_uuids:
+        if re.search(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', id):
+            result['valid_uuids'].append(id)
+        else:
+            result["invalid_uuids"].append(id)
 
     return result
     

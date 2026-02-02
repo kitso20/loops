@@ -1,21 +1,21 @@
-def winning_streak(streak):
-    # for n in range(len(streak)):
+import re
+def uuid_validator(list_of_uuids):
 
-    joined = "".join(streak)
-    splited = joined.split('L')
+    res = {"valid_uuid": [], "invalid_uuid": []}
 
-    if "W" not in streak:
-        return 0
+    for id in list_of_uuids:
+        if re.search(r'^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', id):
+            res['valid_uuid'].append(id)
+        else:
+            res["invalid_uuid"].append(id)
     
-    elif 'L' not in streak:
-        return len(streak)
-    
-    else:
-        nums = []
-        for item in splited:
-            nums.append(len(item))
-
-        return max(nums)
+    return res
 
 
-print(winning_streak(['L', 'W', 'W', 'W', 'W', 'W', 'W', 'L', 'W']))
+print(uuid_validator([
+            '123e4567-e89b-12d3-a456-426614174000',
+            '123e4567-e89b-12d3-a456-42661417400Z',
+            '550e8400-e29b-41d4-a716-446655440000',
+            '550e8400-e29b-41d4-a716-44665544000G'
+        ])
+)
