@@ -58,6 +58,7 @@ def peak_finder(temperatures):
         if first < num > aftr:
             first = aftr
             high.append(num)
+    
     return high
 
 
