@@ -77,4 +77,15 @@ def uuid_validator(list_of_uuids):
     
 
 def inventory_depletion(inventory, daily_sales_projections):
-    return ""
+    if inventory == 0:
+        return "Inventory depleted."
+    total = inventory - sum(daily_sales_projections)
+    run_out_day = 0
+    if total >= 0:
+        return f"Inventory will last through the entire projection period. Remaining stock: {total}"
+    else:
+        for num in daily_sales_projections:
+            inventory -= num
+            run_out_day += 1
+            if inventory < 0 :
+                return f"Inventory will run out on day {run_out_day}."
